@@ -1,0 +1,144 @@
+% this style was created by Marcio Nicolau and is based on beamerthemeZH.sty (https://github.com/deselaers/latex-beamerposter/blob/master/examples/03/beamerthemeZH.sty) 
+\ProvidesPackage{beamerthemeInf}
+
+\usepackage{graphicx}
+\newcommand{\vcenteredinclude}[1]{\begingroup
+\setbox0=\hbox{\includegraphics[width=.8\textwidth, height=.06\paperheight, keepaspectratio]{#1}}%
+\parbox{\wd0}{\box0}\endgroup}
+
+\usepackage{calc}
+\newlength{\mylength}
+
+\mode<presentation>
+
+\definecolor{InfBlue}{RGB}{31,64,122}
+\definecolor{InfMidGray}{RGB}{111,111,110}
+\definecolor{tlg}{RGB}{230,230,230}
+
+\definecolor{InfRed}{RGB}{255, 0, 0}
+\definecolor{InfLightGray}{RGB}{172, 172, 172}
+\definecolor{InfGray}{RGB}{127, 127, 127}
+\definecolor{InfBlack}{RGB}{0, 0, 0}
+\definecolor{InfWhite}{RGB}{255, 255, 255}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%It seems many of the following entries do not control any visible Behaviour. All such entries are
+%set to red, so that they are easy to spot if they ever become visible
+
+\setbeamercolor{headline}{fg=red,bg=InfBlack}
+\setbeamercolor{footline}{fg=red, bg=red}
+\setbeamerfont{footline}{size=\large,series=\bf}
+\setbeamercolor{separation line}{bg=InfBlack}
+\setbeamercolor{title in headline}{fg=InfGray}
+\setbeamercolor{author in headline}{fg=InfWhite}
+\setbeamercolor{institute in headline}{fg=InfLightGray}
+
+\setbeamercolor{framesubtitle}{fg=red, bg=ta2gray}
+\setbeamercolor{author in head/foot}{fg=InfWhite, bg=InfBlack}
+\setbeamercolor{title in head/foot}{fg=red, bg=red}
+
+\setbeamercolor*{normal text}{fg=InfMidGray, bg=tlg}
+\setbeamercolor*{block body}{fg=InfBlack, bg=InfWhite}
+\setbeamercolor*{block title}{fg=InfBlack,bg=InfLightGray}
+\setbeamerfont{block title}{size=\large,series=\bf}
+\setbeamercolor{upper separation line head}{fg=red}
+
+\setbeamercolor*{example body}{fg=red,bg=red}
+\setbeamercolor*{example text}{fg=red,bg=red}
+\setbeamercolor*{example title}{bg=red,fg=red}
+
+\setbeamercolor{alerted text}{fg=red}
+\setbeamercolor{structure}{fg=InfBlue}
+
+\setbeamertemplate{itemize items}{\color{InfRed}$\blacktriangleright$}
+\setbeamertemplate{navigation symbols}{}  % no navigation on a poster
+
+\newenvironment<>{myblock}[1]{%
+	\begin{actionenv}#2%
+	\def\insertblocktitle{\centering#1}%
+	\par%
+	\usebeamertemplate{block begin}\leftskip=14pt\rightskip=14pt\vspace{10pt}}
+	{\par\vspace{1em}\usebeamertemplate{block end}
+	\end{actionenv}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% !!! This environment can't both have nice margins AND display the contained text as justified:
+% We preferentially use the above but keep this one just-in-case
+\setbeamertemplate{block begin}{
+	\setlength{\mylength}{\textwidth+2ex}%
+	\vskip2ex
+	\begin{beamercolorbox}[ht=2.8ex,dp=2ex, wd=\mylength, center,rounded=false,shadow=false,leftskip=1cm,colsep*=0ex]{block title}%
+		\usebeamerfont*{block title}\centering \insertblocktitle
+	\end{beamercolorbox}\vskip-9pt%
+	{\ifbeamercolorempty[bg]{block body}{}{\nointerlineskip\vskip-0.5ex}}%
+	\usebeamerfont{block body}%
+	\begin{beamercolorbox}[rounded=false,shadow=false,center,wd=\textwidth,]{block body}%
+		\ifbeamercolorempty[bg]{block body}\vbox{}%
+		\begin{minipage}{0.96\textwidth}\vbox{}%
+		\justify
+		}
+\setbeamertemplate{block end}{
+	\end{minipage}
+	\end{beamercolorbox}
+	}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setbeamertemplate{headline}{
+	\leavevmode
+	\begin{beamercolorbox}[wd=\paperwidth]{headline}
+		\vspace{2ex}\\
+		\begin{columns}[c]
+			\begin{column}{.09\paperwidth}
+			\end{column}
+			\begin{column}{.675\paperwidth}
+				\raggedleft
+				\usebeamercolor{title in headline}{\color{fg}\textbf{\LARGE{\inserttitle}}\\[1ex]}
+				\usebeamercolor{author in headline}{\color{fg}\large{\insertauthor}\\[1ex]}
+				\usebeamercolor{institute in headline}{\color{fg}\small{\insertinstitute}\\[1ex]}
+			\end{column}
+			\begin{column}{.25\paperwidth}
+				\begin{center}
+					\includegraphics[width=.8\textwidth, height=.39\textwidth, keepaspectratio]{img/inf-dark-logo.png}
+				\end{center}
+			\end{column}
+			\begin{column}{.03\paperwidth}
+			\end{column}
+		\end{columns}
+		\vspace{2ex}\\
+	\end{beamercolorbox}
+
+ 	\begin{beamercolorbox}[wd=\paperwidth]{lower separation line head}
+		\rule{0pt}{2pt}
+	\end{beamercolorbox}
+	\vskip-2cm
+	}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setbeamertemplate{footline}{
+	\begin{beamercolorbox}[wd=\paperwidth]{upper separation line foot}
+		\rule{0pt}{2pt}
+	\end{beamercolorbox}
+	\leavevmode%
+	\begin{beamercolorbox}[ht=4ex,leftskip=1cm,rightskip=1cm]{author in head/foot}%
+		\href{http://www.inf.ufrgs.br}{http://www.inf.ufrgs.br}
+		\hfill
+		\today
+		\hfill
+		\href{mailto:marcio.nicolau@inf.ufrgs.br}{marcio.nicolau@inf.ufrgs.br}
+		\vskip1ex
+	\end{beamercolorbox}
+	\vskip0pt%
+	\begin{beamercolorbox}[wd=\paperwidth]{lower separation line foot}
+		\rule{0pt}{2pt}
+	\end{beamercolorbox}
+	}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Display a grid to help align images ... and it looks nice with this color scheme
+% \beamertemplategridbackground[1cm]
+
+%Some beamer customizations:
+\setbeamertemplate{bibliography item}[text]
+\setbeamertemplate{caption}[numbered]{}% Number float-like environments
+
+\mode<all>

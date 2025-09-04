@@ -1,4 +1,4 @@
-%% AUTHORS
+%% MANIFEST
 %% Copyright 2012 Bruno Menegola
 %
 % This work may be distributed and/or modified under the
@@ -19,8 +19,12 @@
 % Description
 % ===========
 %
-% This file contains the contact information of the authors of this project
+% This file contains a list of all components of this work
 
-Bruno Menegola <http://inf.ufrgs.br/~bmenegola>
-Leonardo de Miranda Borba <lmborba@gmail.com>
+AUTHORS
+beamerthemeInf.sty
+beamerposter.sty
+poster.tex
+MANIFEST
+README
 
